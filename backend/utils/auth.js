@@ -7,7 +7,6 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
   console.log(req);
   const { token } = req.cookies;
   // const token = storage.getItem(token);
-  console.log(token, "token inside session storage");
   if (!token) {
     return next(new ErrorHandler("Please Login to access this resource", 401));
   }

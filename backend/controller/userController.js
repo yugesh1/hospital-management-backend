@@ -37,9 +37,18 @@ exports.registerUser = async (req, res) => {
     email,
     attendance,
     address,
+    userId: req.query.id,
   });
 
-  sendToken(user, 201, res);
+  if (userRole !== "doctor") {
+    sendToken(user, 201, res);
+  } else {
+    res.status(200).json({
+      success: true,
+      user: user,
+      message: "doctor created successfully",
+    });
+  }
 };
 
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {

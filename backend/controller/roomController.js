@@ -3,7 +3,7 @@ const Rooms = require("../models/roomModel");
 
 //Create Room
 exports.createRoom = catchAsyncErrors(async (req, res) => {
-  const room = await Rooms.create(req.body);
+  const room = await Rooms.create({ ...req.body, userId: req.query.id });
 
   res.status(201).json({
     success: true,
@@ -14,7 +14,7 @@ exports.createRoom = catchAsyncErrors(async (req, res) => {
 //Get All Rooms
 
 exports.getAllRooms = catchAsyncErrors(async (req, res) => {
-  const rooms = await Rooms.find();
+  const rooms = await Rooms.find({ userId: req.query.id });
 
   res.status(200).json({
     success: true,

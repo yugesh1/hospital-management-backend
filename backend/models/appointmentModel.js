@@ -44,6 +44,10 @@ const appointmentSchema = mongoose.Schema({
     required: [true, "Please Enter Appointment Duration"],
   },
   doctorsAttending: [doctorsAttendingTheAppointment],
+  userId: {
+    type: String,
+    required: [true, "Please provide userId"],
+  },
 });
 
 module.exports = mongoose.model("Appointments", appointmentSchema);

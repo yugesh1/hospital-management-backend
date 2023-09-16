@@ -43,7 +43,7 @@ const patientSchema = mongoose.Schema({
     type: String,
     required: [true, "Please Enter Name"],
     maxLength: [30, "Name should not exceed 30 characters"],
-    minlength: [4, "Name should not have less than 5 characters"],
+    minlength: [2, "Name should not have less than 5 characters"],
   },
   patientGender: {
     type: String,
@@ -120,6 +120,10 @@ const patientSchema = mongoose.Schema({
   createdOn: {
     type: Date,
     default: Date.now,
+  },
+  userId: {
+    type: String,
+    required: [true, "Please provide userId"],
   },
 });
 

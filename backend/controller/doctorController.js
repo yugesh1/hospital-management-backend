@@ -4,7 +4,10 @@ const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.getAllDoctors = catchAsyncErrors(async (req, res) => {
-  const allDoctors = await User.find({ userRole: "doctor" });
+  const allDoctors = await User.find({
+    userRole: "doctor",
+    userId: req.query.id,
+  });
 
   console.log("allDoctors", allDoctors);
 

@@ -3,7 +3,10 @@ const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.createAppointment = catchAsyncErrors(async (req, res) => {
-  const appointment = await Appointments.create(req.body);
+  const appointment = await Appointments.create({
+    ...req.body,
+    userId: req.query.id,
+  });
 
   res.status(201).json({
     success: true,
@@ -14,7 +17,7 @@ exports.createAppointment = catchAsyncErrors(async (req, res) => {
 //Get All Appointments
 
 exports.getAllAppointments = catchAsyncErrors(async (req, res) => {
-  const appointments = await Appointments.find();
+  const appointments = await Appointments.find({ userId: req.query.id });
 
   if (!appointments) {
     return next(new ErrorHandler("Appointments Not Found ", 404));

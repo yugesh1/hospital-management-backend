@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: [true, "Please Enter userName"],
     maxLength: [30, "Name should not exceed 30 characters"],
-    minlength: [4, "Name should not have less than 5 characters"],
+    minlength: [2, "Name should not have less than 5 characters"],
   },
   password: {
     type: String,
@@ -41,6 +41,10 @@ const userSchema = mongoose.Schema({
   address: {
     type: String,
     required: [true, "Please Enter your Address"],
+  },
+  userId: {
+    type: String,
+    required: [true, "Please provide userId"],
   },
   resetPasswordToken: String,
   resetPasswordExpire: Date,

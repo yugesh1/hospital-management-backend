@@ -31,6 +31,7 @@ exports.createPatient = catchAsyncErrors(async (req, res) => {
     patientAddress,
     guardianName,
     guardianPhone,
+    guardianAddress,
   } = req.body;
 
   const patient = await Patients.create({
@@ -52,6 +53,8 @@ exports.createPatient = catchAsyncErrors(async (req, res) => {
     patientAddress,
     guardianName,
     guardianPhone,
+    guardianAddress,
+    userId: req.query.id,
     // patientImage: {
     //   public_id: myCloud.public_id,
     //   url: myCloud.secure_url,
@@ -67,7 +70,10 @@ exports.createPatient = catchAsyncErrors(async (req, res) => {
 //Get All Patients
 
 exports.getAllPatients = catchAsyncErrors(async (req, res) => {
-  const apiFeatures = new ApiFeatures(Patients.find(), req.query).search();
+  const apiFeatures = new ApiFeatures(
+    Patients.find({ userId: req.query.id }),
+    req.query
+  ).search();
 
   const patients = await apiFeatures.query;
 

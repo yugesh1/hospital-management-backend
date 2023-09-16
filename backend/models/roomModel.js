@@ -43,6 +43,10 @@ const roomSchema = mongoose.Schema({
     type: Boolean,
     required: [true, "Please Enter Status "],
   },
+  userId: {
+    type: String,
+    required: [true, "Please provide userId"],
+  },
 });
 
 roomSchema.methods.saveCurrentPatient = async function (room) {

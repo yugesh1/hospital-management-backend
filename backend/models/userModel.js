@@ -44,7 +44,7 @@ const userSchema = mongoose.Schema({
   },
   userId: {
     type: String,
-    required: [true, "Please provide userId"],
+    // required: [true, "Please provide userId"],
   },
   resetPasswordToken: String,
   resetPasswordExpire: Date,

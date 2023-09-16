@@ -28,21 +28,30 @@ exports.registerUser = async (req, res) => {
     address,
   } = req.body;
 
-  const user = await Users.create({
-    userName,
-    userRole,
-    status,
-    phoneNo,
-    password,
-    email,
-    attendance,
-    address,
-    userId: req.query.id,
-  });
-
   if (userRole !== "doctor") {
+    const user = await Users.create({
+      userName,
+      userRole,
+      status,
+      phoneNo,
+      password,
+      email,
+      attendance,
+      address,
+    });
     sendToken(user, 201, res);
   } else {
+    const user = await Users.create({
+      userName,
+      userRole,
+      status,
+      phoneNo,
+      password,
+      email,
+      attendance,
+      address,
+      userId: req.query.id,
+    });
     res.status(200).json({
       success: true,
       user: user,

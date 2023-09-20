@@ -4,10 +4,10 @@ const jwt = require("jsonwebtoken");
 const Users = require("../models/userModel");
 
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
-  console.log(req);
-  const beareToken = req.headers["Authorization"];
+  console.log(req.headers);
+  const beareToken = req.headers["authorization"];
   // const token = storage.getItem(token);
-  if (!token) {
+  if (!beareToken) {
     return next(new ErrorHandler("Please Login to access this resource", 401));
   }
 

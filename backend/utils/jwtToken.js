@@ -6,7 +6,7 @@ const sendToken = (user, statusCode, res) => {
   const options = {
     expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
     httpOnly: true,
-    domain: ".herokuapp.com",
+    domain: "https://hospital-management-server-c05d2984134e.herokuapp.com/",
   };
 
   res.cookie("token", token, options).status(statusCode).json({

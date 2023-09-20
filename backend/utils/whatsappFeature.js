@@ -23,10 +23,10 @@ const client = new Client({
   },
 });
 
-client.on("qr", (qr) => {
-  // console.log("QR RECEIVED", qr);
-  qrcode.generate(qr, { small: true });
-});
+// client.on("qr", (qr) => {
+//   // console.log("QR RECEIVED", qr);
+//   qrcode.generate(qr, { small: true });
+// });
 
 client.on("ready", () => {
   console.log("Client is ready!");
@@ -53,4 +53,4 @@ client.on("authenticated", (session) => {
   //   });
 });
 
-client.initialize();
+// client.initialize();

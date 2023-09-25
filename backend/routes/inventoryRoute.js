@@ -11,11 +11,12 @@ const {
 const router = express.Router();
 
 router.route("/inventory/new").post(createItem);
+
+router.route("/inventory/all").get(getAllItems);
 router
   .route("/inventory/:id")
   .get(getSingleItem)
   .delete(deleteItem)
   .put(updateItem);
-router.route("/inventory/all").get(getAllItems);
 
 module.exports = router;

@@ -16,7 +16,7 @@ exports.createUser = async (req, res) => {
 
 // Register User
 
-exports.registerUser = async (req, res) => {
+exports.registerUser = async (req, res, next) => {
   const {
     userName,
     userRole,
@@ -29,6 +29,10 @@ exports.registerUser = async (req, res) => {
   } = req.body;
 
   if (userRole !== "doctor") {
+    const foundUser = await Users.findOne({ email });
+    if (foundUser) {
+      return next(new ErrorHandler("email address already exists", 400));
+    }
     const user = await Users.create({
       userName,
       userRole,
@@ -41,6 +45,10 @@ exports.registerUser = async (req, res) => {
     });
     sendToken(user, 201, res);
   } else {
+    const foundUser = await Users.findOne({ email });
+    if (foundUser) {
+      return next(new ErrorHandler("email address already exists", 400));
+    }
     const user = await Users.create({
       userName,
       userRole,

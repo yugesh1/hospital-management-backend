@@ -1,3 +1,15 @@
-2023/09/20-22:14:37.624 86f4 Reusing MANIFEST C:\Users\yugesh\Downloads\hospital-mmg-server\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
-2023/09/20-22:14:37.625 86f4 Recovering log #16
-2023/09/20-22:14:37.626 86f4 Reusing old log C:\Users\yugesh\Downloads\hospital-mmg-server\.wwebjs_auth\session\Default\Local Storage\leveldb/000016.log 
+2023/09/25-19:45:34.067 71bc Reusing MANIFEST C:\Users\yugesh\Downloads\hospital-mmg-server\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
+2023/09/25-19:45:34.068 71bc Recovering log #16
+2023/09/25-19:45:34.069 71bc Reusing old log C:\Users\yugesh\Downloads\hospital-mmg-server\.wwebjs_auth\session\Default\Local Storage\leveldb/000016.log 
+2023/09/25-21:01:59.648 3ef4 Level-0 table #20: started
+2023/09/25-21:01:59.650 3ef4 Level-0 table #20: 22908 bytes OK
+2023/09/25-21:01:59.652 3ef4 Delete type=0 #16
+2023/09/25-21:01:59.653 3ef4 Compacting 4@0 + 1@1 files
+2023/09/25-21:01:59.657 3ef4 Generated table #21@0: 8 keys, 849 bytes
+2023/09/25-21:01:59.657 3ef4 Compacted 4@0 + 1@1 files => 849 bytes
+2023/09/25-21:01:59.657 3ef4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/09/25-21:01:59.658 3ef4 Delete type=2 #8
+2023/09/25-21:01:59.658 3ef4 Delete type=2 #11
+2023/09/25-21:01:59.658 3ef4 Delete type=2 #14
+2023/09/25-21:01:59.658 3ef4 Delete type=2 #17
+2023/09/25-21:01:59.658 3ef4 Delete type=2 #20

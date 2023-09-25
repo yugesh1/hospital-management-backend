@@ -5,7 +5,7 @@ const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 //Create Patient
 
-exports.createPatient = catchAsyncErrors(async (req, res) => {
+exports.createPatient = catchAsyncErrors(async (req, res, next) => {
   // const myCloud = await cloudinary.uploader.upload(req.body.patientImage, {
   //   folder: "avatars",
   //   width: 150,
@@ -33,6 +33,11 @@ exports.createPatient = catchAsyncErrors(async (req, res) => {
     guardianPhone,
     guardianAddress,
   } = req.body;
+
+  const foundPatient = await Patients.findOne({ patientEmail });
+  if (foundPatient) {
+    return next(new ErrorHandler("email address already exists", 400));
+  }
 
   const patient = await Patients.create({
     patientName,
